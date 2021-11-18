@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+import React, { useState, Fragment } from "react";
+import "./App.css";
 
-function App() {
+const defaults = {
+  coffee: 11,
+  water: 200,
+  // grind: 18,
+};
+
+const App = () => {
+  const [isLatte, setIsLatte] = useState(false);
+  const [isIced, setIsIced] = useState(false);
+  const [gramsWater, setGramsWater] = useState(defaults["water"]);
+  const [gramsCoffee, setGramsCoffee] = useState(defaults["coffee"]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <h1>Coffee Scaler</h1>
+      <label for="gramsWater" />
+      <input type="text" value={gramsWater} id="gramsWater" />
+      <label for="gramsCoffee" />
+      <input type="text" value={gramsCoffee} id="gramsCoffee" />
+    </Fragment>
   );
-}
+};
 
 export default App;
+
