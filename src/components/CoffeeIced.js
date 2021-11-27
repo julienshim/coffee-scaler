@@ -1,10 +1,11 @@
 import React from 'react';
 
 const defaultRatio = {
-    ice: 80,
-    water: 120,
     coffee: 11,
-    brew: 250
+    ice: 80,
+    output: (120 + 80) - 11 * 2,
+    water: 120,
+    waterLossed: 11 * 2,
 };
 
 const CoffeeIced = () => {
