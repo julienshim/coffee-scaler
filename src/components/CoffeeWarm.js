@@ -18,7 +18,7 @@ const CoffeeWarm = () => {
   const [output, setOutput] = useState(defaultRatio.output);
 
   const recalculate = (event) => {
-    const name = event.target['name'];
+    const name = event.target["name"];
     const value = event.target.value;
 
     if (name === "output") {
@@ -32,6 +32,11 @@ const CoffeeWarm = () => {
     }
     if (name === "water") {
       setWater(value);
+      setCoffee((value * defaultRatio.coffee) / defaultRatio.water);
+      setWaterAbsorptionLoss(
+        ((value * defaultRatio.coffee) / defaultRatio) * 2
+      );
+      setOutput(value - (value * defaultRatio.cofee) / defaultRatio.water * 2);
     }
   };
 
