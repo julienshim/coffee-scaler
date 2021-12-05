@@ -2,7 +2,6 @@ import React, { useState, Fragment } from "react";
 
 const defaultRatio = {
   coffee: 11,
-  waterAbsorptionLoss: 11 * 2,
   water: 200,
   output: 200 - 11 * 2,
 };
@@ -11,9 +10,6 @@ console.log(defaultRatio.output);
 
 const CoffeeWarm = () => {
   const [coffee, setCoffee] = useState(defaultRatio.coffee);
-  const [waterAbsorptionLoss, setWaterAbsorptionLoss] = useState(
-    defaultRatio.waterAbsorptionLoss
-  );
   const [water, setWater] = useState(defaultRatio.water);
   const [output, setOutput] = useState(defaultRatio.output);
 
@@ -26,17 +22,15 @@ const CoffeeWarm = () => {
     }
     if (name === "coffee") {
       setCoffee(value);
-      setWaterAbsorptionLoss(value * 2);
       setWater((value * defaultRatio.water) / defaultRatio.coffee);
       setOutput((value * defaultRatio.water) / defaultRatio.coffee - value * 2);
     }
     if (name === "water") {
       setWater(value);
       setCoffee((value * defaultRatio.coffee) / defaultRatio.water);
-      setWaterAbsorptionLoss(
-        ((value * defaultRatio.coffee) / defaultRatio) * 2
+      setOutput(
+        value - ((value * defaultRatio.cofee) / defaultRatio.water) * 2
       );
-      setOutput(value - (value * defaultRatio.cofee) / defaultRatio.water * 2);
     }
   };
 
