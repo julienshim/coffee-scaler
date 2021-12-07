@@ -2,6 +2,7 @@ import React, { useState, Fragment } from "react";
 
 const defaultRatio = {
   coffee: 11,
+  waterAbsorptionLoss: 11 * 2,
   water: 200,
   output: 200 - 11 * 2,
 };
@@ -19,6 +20,7 @@ const CoffeeWarm = () => {
 
     if (name === "output") {
       setOutput(value);
+      setCoffee(value * 11 / 178);
     }
     if (name === "coffee") {
       setCoffee(value);
