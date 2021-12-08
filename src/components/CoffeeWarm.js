@@ -21,6 +21,7 @@ const CoffeeWarm = () => {
     if (name === "output") {
       setOutput(value);
       setCoffee(value * 11 / 178);
+      setWater(value * 11 / 178 * 200 / 11);
     }
     if (name === "coffee") {
       setCoffee(value);
