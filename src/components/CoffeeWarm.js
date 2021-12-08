@@ -16,12 +16,12 @@ const CoffeeWarm = () => {
 
   const recalculate = (event) => {
     const name = event.target["name"];
-    const value = event.target.value;
+    const value = +event.target.value;
 
     if (name === "output") {
       setOutput(value);
-      setCoffee(value * 11 / 178);
-      setWater(value * 11 / 178 * 200 / 11);
+      setCoffee((value * 11) / 178);
+      setWater((((value * 11) / 178) * 200) / 11);
     }
     if (name === "coffee") {
       setCoffee(value);
@@ -32,25 +32,37 @@ const CoffeeWarm = () => {
       setWater(value);
       setCoffee((value * defaultRatio.coffee) / defaultRatio.water);
       setOutput(
-        value - ((value * defaultRatio.cofee) / defaultRatio.water) * 2
+        value - ((value * defaultRatio.coffee) / defaultRatio.water) * 2
       );
     }
+  };
+
+  const round = (n) => {
+    return Math.round(n * 10) / 10;
   };
 
   return (
     <Fragment>
       <h1>Coffee Warm</h1>
       <form>
+        <label>coffee</label>
         <input
           type="text"
-          value={coffee}
+          value={round(coffee)}
           name="coffee"
           onChange={recalculate}
         />
-        <input type="text" value={water} name="water" Change={recalculate} />
+        <label>water</label>
         <input
           type="text"
-          value={output}
+          value={round(water)}
+          name="water"
+          onChange={recalculate}
+        />
+        <label>output</label>
+        <input
+          type="text"
+          value={round(output)}
           name="output"
           onChange={recalculate}
         />
