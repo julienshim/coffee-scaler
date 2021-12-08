@@ -20,8 +20,8 @@ const CoffeeWarm = () => {
 
     if (name === "output") {
       setOutput(value);
-      setCoffee((value * 11) / 178);
-      setWater((((value * 11) / 178) * 200) / 11);
+      setCoffee((value * defaultRatio.coffee) / defaultRatio.output);
+      setWater((((value * defaultRatio.coffee) / defaultRatio.output) * defaultRatio.water) / defaultRatio.coffee);
     }
     if (name === "coffee") {
       setCoffee(value);
