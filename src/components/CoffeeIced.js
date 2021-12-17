@@ -1,11 +1,17 @@
 import React, { Fragment } from "react";
 
+const serviceIcedRatio = {
+  ice: 50,
+  output: 295
+}
+
 const defaultRatio = {
-  coffee: 11,
-  ice: 80,
-  output: 120 + 80 - 11 * 2,
-  water: 120,
-  waterLossed: 11 * 2,
+  coffee: 10,
+  serviceIce: 33,
+  output: 200,
+  brewIce: 74,
+  water: 113,
+  waterLossed: 10 * 2,
 };
 
 const CoffeeIced = () => {
